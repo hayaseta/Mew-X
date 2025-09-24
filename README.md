@@ -13,6 +13,7 @@ High-performance trading bot powered by analytics.
 
 ## Features
 
+- Check current consensus leader's location to make decisions 
 - A Postgre database hooked into Pump.fun and Pump.fun AMM
 - Integrated SWQoS Services:
   - Blox
