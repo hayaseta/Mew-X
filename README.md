@@ -9,6 +9,7 @@ High-performance trading bot powered by analytics.
 - A processor & some electricity
 - Preferably Linux distro
 - Faith.
+- & an RPC provider, current fastest: https://apewise.org
 
 ## Features
 
