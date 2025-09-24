@@ -22,6 +22,7 @@ High-performance trading bot powered by analytics.
   - Temporal
   - ZeroSlot
   - NextBlock
+- Durable nonce when using SWQoS
 - Choose between gRPC or Websocket
 - Plug-n-play trading strategies:
    - Deagles - Creators who funded their wallet (or sub-wallet) with more than X SOL **using CEX**
