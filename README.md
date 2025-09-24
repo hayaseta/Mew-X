@@ -136,6 +136,14 @@ DBF_MAX_CHP=10
 $ cargo run
 ```
 
+First, Mew will fetch locations of nodes participating in the cluster. **Indexing of (at the time of writing) 6000+ validators takes around 1.5 hour, we do that to speed up the location checks when trading.**
+
+```bash
+Indexing HrLAr7y9k8qYd14uF5KdTz5z9p9BvZuf1o6cKY255wtD @ 80.240.31.38 -> ("Frankfurt", "Germany")
+Indexing B7PbdWDgqc5h5rbTyi5Yyz2e1DJZEMoM3uXoqobk35n9 @ 202.8.11.203 -> ("Singapore", "Singapore")
+Indexing Apt9PHrFBt1sji788VzwBYpYensM43eA6qLVybqZrKak @ 65.21.90.166 -> ("Helsinki", "Finland")
+```
+
 ### (Optional) Development
 
 There are lots of tests in `sol.rs` of `sol_hook`, to save you some trouble here is the command:
