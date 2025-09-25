@@ -8,6 +8,7 @@ High-performance trading bot powered by analytics.
 
 - A processor & some electricity
 - Preferably Linux distro
+- [PostgreSQL](https://www.postgresql.org/)
 - Faith.
 - & an RPC provider, current fastest: https://apewise.org
 
@@ -43,6 +44,16 @@ High-performance trading bot powered by analytics.
 $ git clone https://github.com/FLOCK4H/Mew-X
 $ cd Mew-X
 ```
+
+### Create databases
+
+```bash
+$ psql -U your_postgre_user
+$ > CREATE DATABASE vacation;
+$ > CREATE DATABASE goldmine;
+```
+
+Tables will be created on launch.
 
 ### Configure the `.env` file
 
