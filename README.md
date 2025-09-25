@@ -66,6 +66,7 @@ Tables will be created on launch.
 PRIVATE_KEY="4knkrbw0238XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 RPC_URL="http://127.0.0.1:8899"
 WS_URL="ws://127.0.0.1:8900"
+DB_URL = "postgres://<user>:<password>@<host>:<port>" # need a valid postgre path 
 
 USE_GRPC = false
 GRPC_URL="http://127.0.0.1:10000"
