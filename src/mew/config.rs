@@ -110,6 +110,11 @@ pub fn get_priority_fee_lvl() -> PriorityFeeLevel {
     }
 }
 
+pub fn get_db_url() -> String {
+    let key: &'static str = "DB_URL";
+    check_empty_var(env::var(key).unwrap_or_else(|_| panic!("{} is invalid / not set", key)), key)
+}
+
 pub fn get_use_grpc() -> bool {
     let key: &'static str = "USE_GRPC";
     env::var(key).ok().unwrap_or_default().parse().unwrap_or(false)

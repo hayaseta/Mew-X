@@ -1,5 +1,5 @@
 use {
-    mew::{log, mew::{config::{self, get_use_grpc}, deagle::deagle::{Deagle, DeagleConfig, Source}, snipe::handler::MewSnipe, sol_hook::{goldmine::Goldmine, pump_fun::PumpFun, pump_swap::PumpSwap, sol::SolHook, vacation::Vacation}, writing::{cc, Colors}}, warn}, solana_keypair::Keypair, std::{io::{self, StdoutLock}, sync::Arc}
+    mew::{log, mew::{config::{self, get_use_grpc, get_db_url}, deagle::deagle::{Deagle, DeagleConfig, Source}, snipe::handler::MewSnipe, sol_hook::{goldmine::Goldmine, pump_fun::PumpFun, pump_swap::PumpSwap, sol::SolHook, vacation::Vacation}, writing::{cc, Colors}}, warn}, solana_keypair::Keypair, std::{io::{self, StdoutLock}, sync::Arc}
 };
 
 pub const VERSION: &str = "0.1.0";
@@ -32,13 +32,14 @@ fn intro(colors: &mut Colors<'static>) {
 async fn init_dbs(sol: &SolHook, colors: &mut Colors<'static>, pump_fun: &PumpFun, pump_swap: &PumpSwap) -> (Vacation, Goldmine, Arc<Deagle>) {
         // `vacation` DB is used to store validator locations on the Solana cluster.
         let vacs = Vacation::new(sol.clone());
-        let vacs = vacs.initialize("postgres://patryk:flock4h@127.0.0.1:5431/vacation").await;
+        let db_url = get_db_url();
+        let vacs = vacs.initialize((db_url.clone() + "/vacation").as_str()).await;
         vacs.fill(Some(500)).await.unwrap();
         colors.cprint("Vacation database filled 🌴", cc::LIGHT_MAGENTA);
     
         // `goldmine` DB is used to store token data and duplicates.
         let goldmine = Goldmine::new(sol.clone());
-        let goldmine = goldmine.initialize("postgres://patryk:flock4h@127.0.0.1:5431/goldmine").await;
+        let goldmine = goldmine.initialize((db_url.clone() + "/goldmine").as_str()).await;
         colors.cprint("Goldmine database initialized 💰", cc::LIGHT_YELLOW);
 
         colors.cprint("Starting Deagle 🦅", cc::LIGHT_BLUE);
