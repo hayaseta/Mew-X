@@ -29,7 +29,7 @@ High-performance trading bot powered by analytics.
    - Deagles - Creators who funded their wallet (or sub-wallet) with more than X SOL **using CEX**
    - VolCreators - Creators from analytics, sorted by volume
    - GrandChillers - ...sorted by highest market cap
-   - Digged - Doesn't use analytics, checks if the muber of transactions between first and n slot from mint's creation is higher or equal to configured number
+   - Digged - Doesn't use analytics, checks if the number of transactions between first and n slot from mint's creation is higher or equal to configured number
    - Dip - Enter into dips of migrated Pump.fun tokens
    - DevBestFriend - Enter only if the dev is alone in his slot after 100ms, avoids bundlers
 - Configurable trading filters (see `.env`)
